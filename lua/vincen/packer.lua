@@ -53,16 +53,16 @@ return require('packer').startup(function(use)
     })
 
     -- install without yarn or npm
-    -- use({
-    --     "iamcco/markdown-preview.nvim",
-    --     run = function() vim.fn["mkdp#util#install"]() end,
-    -- })
-
-    use({ "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-        ft = { "markdown" },
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
     })
+
+    -- use({ "iamcco/markdown-preview.nvim",
+    --     run = "cd app && npm install",
+    --     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    --     ft = { "markdown" },
+    -- })
 
     use('ThePrimeagen/vim-be-good')
     use('folke/zen-mode.nvim')
@@ -76,5 +76,19 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     })
-    use('nvim-lualine/lualine.nvim')
+    use({
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    })
+    use('folke/neodev.nvim')
+    use({
+        'j-hui/fidget.nvim',
+        config = function()
+            require('fidget').setup()
+        end
+    })
+    use('tpope/vim-rhubarb')
+    use('lewis6991/gitsigns.nvim')
+    -- disabled use('lukas-reineke/indent-blankline.nvim')
 end)
+

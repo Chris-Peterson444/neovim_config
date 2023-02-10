@@ -59,3 +59,10 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true },
     {desc = 'Make current file executable'})
 
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", {desc = 'CellularAutomaton fun'});
+
+-- Get tired of writing :so all the time?
+vim.keymap.set("n", "<leader><leader>", function () vim.cmd("so") end)
+
+-- non lsp formatting
+vim.keymap.set("n", "<leader>F", [[:Format<CR>]], {desc = 'Format file with formatter'})
+vim.keymap.set("n", "<leader>FW", [[:FormatWrite<CR>]], {desc = 'Format and save file with formatter'})

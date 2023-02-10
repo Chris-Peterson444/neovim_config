@@ -8,6 +8,7 @@ lsp.ensure_installed({
 	'rust_analyzer',
 })
 
+--  Lua config
 lsp.configure('sumneko_lua', {
     settings = {
         Lua = {
@@ -16,6 +17,19 @@ lsp.configure('sumneko_lua', {
             }
         }
     }
+})
+
+-- python config
+lsp.configure('pylsp', {
+   settings = {
+     pylsp = {
+       plugins = {
+        flake8 = {
+           enabled = true,
+         }
+       }
+     }
+   }
 })
 
 
@@ -27,6 +41,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 	['<C-y>'] = cmp.mapping.confirm({ select = true}),
 	['<C-Space>'] = cmp.mapping.complete(),
+    --['<leader><Esc>'] = cmp.mapping.abort(),
 })
 
 -- Don't cycle using tab (or reverse with S-Tab)
@@ -47,21 +62,12 @@ lsp.set_preferences({
 })
 
 
--- Table merging function
--- function Merge(...)
---     local arg = {...}
---     local merged = {}
---     for _,t in pairs(arg) do
---         for k, v in pairs(t) do
---             merged[k] = v
---         end
---     end
---     return merged
--- end
 
 lsp.on_attach(function(client, bufnr)
 
 
+    -- local function to combine tables. This needs to be defind here otherwise
+    -- the definition won't be found on attach
     local function Merge(...)
         local arg = {...}
         local merged = {}

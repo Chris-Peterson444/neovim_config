@@ -11,7 +11,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Not sure how I feel about this yet
-vim.opt.wrap = true -- Default
+vim.opt.wrap = false -- Default
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -31,3 +31,4 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+vim.opt.timeoutlen = 500

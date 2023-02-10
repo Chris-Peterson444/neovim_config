@@ -1,6 +1,7 @@
-import sys
 import re
+import sys
 from typing import List
+from typing import Tuple
 # single_line = re.compile(r"use\s*[({]+['\"]([\.a-zA-Z/-]*)['\"][,)}]+")
 all = re.compile(r"['\"]([a-zA-Z\.\-0-9]*/[a-zA-Z\.\-0-9]*)['\"]")
 
@@ -22,7 +23,18 @@ def main() -> int:
     with open('lua/vincen/packer.lua', 'r') as packer_file:
         contents = packer_file.read()
         packages = all.findall(contents)
-        write_readme(packages)
+        # this is really expensive but I'm being lazy right now
+        used_packages = []
+        for p in packages:
+            using = True
+            for line in contents.splitlines():
+                if p in line and '-- disabled' in line:
+                    using = False
+                    break
+            if using:
+                used_packages.append(p)
+
+        write_readme(used_packages)
 
     return 0
 

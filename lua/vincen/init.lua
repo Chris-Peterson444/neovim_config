@@ -1,6 +1,9 @@
-require('vincen.remap')
-require('vincen.packer')
-require('vincen.set')
+require('vincen.remap') -- keybindings
+require('vincen.packer') -- packages
+require('vincen.set') -- vim set options
+require('vincen.let') -- vim let options
+
+vim.python3_host_prog = '/home/chrissyp/.config/nvim/venv/bin/python'
 
 local augroup = vim.api.nvim_create_augroup
 local VincenGroup = augroup('Vincen', {})
@@ -23,7 +26,7 @@ autocmd('TextYankPost', {
     end,
 })
 
-autocmd({"BufWritePre"}, {
+autocmd({ "BufWritePre" }, {
     group = VincenGroup,
     pattern = "*",
     command = [[%s/\s\+$//e]],
@@ -33,3 +36,7 @@ vim.g.netrw_browse_split = 0
 --vim.g.netrw_banner = 0
 --vim.g.netrw_winsize = 25
 
+-- autocmd({ "FormatterPost" }, {
+--     group = VincenGroup,
+--     command = require('formatter')
+-- })
