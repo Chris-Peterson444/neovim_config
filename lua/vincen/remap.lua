@@ -66,3 +66,4 @@ vim.keymap.set("n", "<leader><leader>", function () vim.cmd("so") end)
 -- non lsp formatting
 vim.keymap.set("n", "<leader>F", [[:Format<CR>]], {desc = 'Format file with formatter'})
 vim.keymap.set("n", "<leader>FW", [[:FormatWrite<CR>]], {desc = 'Format and save file with formatter'})
+

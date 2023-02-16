@@ -1,7 +1,6 @@
 import re
 import sys
 from typing import List
-from typing import Tuple
 # single_line = re.compile(r"use\s*[({]+['\"]([\.a-zA-Z/-]*)['\"][,)}]+")
 all = re.compile(r"['\"]([a-zA-Z\.\-0-9]*/[a-zA-Z\.\-0-9]*)['\"]")
 

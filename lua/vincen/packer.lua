@@ -8,7 +8,8 @@ return require('packer').startup(function(use)
     use('wbthomason/packer.nvim')
 
     use({
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.1',
         -- or                            , branch = '0.1.x',
         requires = {
             { 'nvim-lua/plenary.nvim' }
@@ -25,6 +26,7 @@ return require('packer').startup(function(use)
     })
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use('nvim-treesitter/nvim-treesitter-context')
     use('nvim-treesitter/playground', { run = ':TSUpdate' })
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
@@ -78,17 +80,31 @@ return require('packer').startup(function(use)
     })
     use({
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        -- requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     })
     use('folke/neodev.nvim')
-    use({
-        'j-hui/fidget.nvim',
+    use("nvim-tree/nvim-web-devicons")
+    -- use("nvim-tree/nvim-web-devicons")
+    use {
+        "folke/trouble.nvim",
         config = function()
-            require('fidget').setup()
+            require("trouble").setup {
+                icons = false,
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
         end
-    })
+    }
+
+    -- use({
+    --     'j-hui/fidget.nvim',
+    --     config = function()
+    --         require('fidget').setup()
+    --     end
+    -- })
     use('tpope/vim-rhubarb')
     use('lewis6991/gitsigns.nvim')
+    use("github/copilot.vim")
     -- disabled use('lukas-reineke/indent-blankline.nvim')
 end)
-
