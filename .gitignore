@@ -3,3 +3,4 @@ venv/
 __pycache__/
 .todo
 plugin/packer_compiled.lua
+pack/
