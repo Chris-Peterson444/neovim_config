@@ -153,7 +153,7 @@ lsp.on_attach(function(client, bufnr)
         Merge(opts, { desc = '[v]iew [r]elated [r]eferences' }))
 
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end,
-        Merge(opts, { desc = '[v]iew [r]related and [r]ename' }))
+        Merge(opts, { desc = '[v]iew [r]related and re[n]ame' }))
 
     vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end, Merge(opts, { desc = '[h]elp' }))
 end)

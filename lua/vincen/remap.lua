@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 -- opens netrw
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, {desc = '[P]roject [V]iew'})
 -- clears search highlighting until the next search
-vim.keymap.set('n', '<C-l>', vim.cmd.noh, {desc = '[CL]ear Highlights'})
+vim.keymap.set('n', '<leader>l', vim.cmd.noh, {desc = 'C[l]ear Highlights'})
 
 --Move highlighted block through text
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = 'Move highlited block down'})
@@ -46,17 +46,17 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>",
     {desc = 'Open new instance in tmux'})
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {desc = 'format text'})
 
--- Quick fix list binds? Haven't seen this yet
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", {desc = ''})
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", {desc = ''})
+-- Quick fix list binds
+vim.keymap.set("n", "<M-n>", "<cmd>cnext<CR>zz", {desc = ''})
+vim.keymap.set("n", "<M-N>", "<cmd>cprev<CR>zz", {desc = ''})
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", {desc = ''})
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", {desc = ''})
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    {desc = 'Replace currently highlighted word'})
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    {desc = '[R]eplace currently highlighted word'})
 
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true },
-    {desc = 'Make current file executable'})
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true },
+--     {desc = 'Make current file executable'})
 
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", {desc = 'CellularAutomaton fun'});
 
