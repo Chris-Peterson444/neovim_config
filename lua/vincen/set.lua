@@ -32,3 +32,5 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.opt.timeoutlen = 500
+
+vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
