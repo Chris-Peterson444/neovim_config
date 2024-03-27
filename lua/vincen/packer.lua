@@ -16,17 +16,19 @@ return require('packer').startup(function(use)
         }
     })
 
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            require("rose-pine").setup({
-                variant = 'main',
-            })
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
+    -- use({
+    --     'rose-pine/neovim',
+    --     as = 'rose-pine',
+    --     config = function()
+    --         require("rose-pine").setup({
+    --             variant = 'main',
+    --         })
+    --         vim.cmd('colorscheme rose-pine')
+    --     end
+    -- })
+    --
 
+    use { "catppuccin/nvim", as = "catppuccin" }
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('nvim-treesitter/nvim-treesitter-context')
     use('nvim-treesitter/playground', { run = ':TSUpdate' })

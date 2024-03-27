@@ -24,18 +24,35 @@ lsp.configure('pylsp', {
     -- capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     settings = {
         pylsp = {
+            -- configurationSources = {"flake8"},
             plugins = {
                 flake8 = {
                     enabled = true,
                 },
+                pyflakes = {
+                    enabled = false,
+                },
+                pylsp_black = {
+                    enabled = true,
+                },
+                yapf = {
+                    enabled = false,
+                },
+                pycodestyle = {
+                    enabled = false,
+                },
                 jedi_completion = {
                     include_params = true,
+                    fuzzy = true,
                 },
             }
         }
     }
 })
 
+
+-- perl config
+lsp.configure('perlnavigator')
 
 -- Get snippet jumping working. Example taken from
 -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip

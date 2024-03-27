@@ -2,6 +2,8 @@ require('vincen.remap') -- keybindings
 require('vincen.packer') -- packages
 require('vincen.set') -- vim set options
 require('vincen.let') -- vim let options
+require('mason').setup() -- LSP/Linter/etc things
+-- require('mason-lspconfig').setup() --
 
 vim.python3_host_prog = '/home/chrissyp/.config/nvim/venv/bin/python'
 
