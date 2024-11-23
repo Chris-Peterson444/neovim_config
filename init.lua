@@ -841,10 +841,11 @@ require('lazy').setup({
     name = 'catppuccin',
     priority = 1000,
     init = function()
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'catppuccin-frappe'
       vim.cmd.hi 'Comment gui=none'
     end,
     opts = {
+      falvour = 'auto', -- latte, frappe, macchiato, mocha, auto
       integrations = {
         telescope = {
           enabled = true,
