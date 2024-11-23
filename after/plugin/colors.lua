@@ -12,3 +12,4 @@
 -- end
 --
 -- ColorMyPencils()
+require('nvim-highlight-colors').setup({})
