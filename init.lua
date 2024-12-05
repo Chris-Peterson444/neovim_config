@@ -732,7 +732,11 @@ require('lazy').setup({
       },
     },
   },
-
+  { -- Autoinstall conform formatters defined above via Mason
+    'zapling/mason-conform.nvim',
+    -- NOTE: `opts = {}` is the same as calling `require('mason-conform').setup({})`
+    opts = {},
+  },
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
