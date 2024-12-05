@@ -634,10 +634,15 @@ require('lazy').setup({
         --
         pylsp = {
           settings = {
-            enabled = true,
-            plugins = {
-              flake8 = {
-                enabled = true,
+            -- Yes really, a redundant pyslp setting. I know.
+            pylsp = {
+              plugins = {
+                flake8 = {
+                  enabled = true,
+                },
+                pycodestyle = {
+                  enabled = false,
+                },
               },
             },
           },
