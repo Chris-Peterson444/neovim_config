@@ -957,17 +957,33 @@ require('lazy').setup({
           :find()
       end
 
-      vim.keymap.set('n', '<leader>ht', function()
-        toggle_telescope(harpoon:list())
-      end, { desc = 'Open harpoon telescope window' })
-      --
-      vim.keymap.set('n', '<leader>he', function()
+      -- -- Open telescope finder for harpoon list
+      -- vim.keymap.set('n', '<leader>ht', function()
+      --   toggle_telescope(harpoon:list())
+      -- end, { desc = 'Open harpoon telescope window' })
+
+      -- Open built in finder for harpoon list
+      vim.keymap.set('n', '<leader>h', function()
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end, { desc = 'Open harpoon editor window' })
 
+      -- add file to harppon list
       vim.keymap.set('n', '<leader>a', function()
         harpoon:list():add()
       end, { desc = 'Add file to harpoon list' })
+
+      -- Jump to file
+      vim.keymap.set('n', '<C-j>', function()
+        harpoon:list():select(1)
+      end, { desc = 'Jump to harpoon file 1' })
+
+      vim.keymap.set('n', '<C-k>', function()
+        harpoon:list():select(2)
+      end, { desc = 'Jump to harpoon file 2' })
+
+      vim.keymap.set('n', '<C-l>', function()
+        harpoon:list():select(3)
+      end, { desc = 'Jump to harpoon file 3' })
     end,
   },
   { -- Highlight, edit, and navigate code
